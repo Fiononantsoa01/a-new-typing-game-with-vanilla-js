@@ -12,8 +12,12 @@
     --secondary-color: #008080;
     --terty-color: #FFD700;
     --white: #f0f0f0;
+    --text-color1: #000;
 }
-
+body {
+    background-color: var(--white);
+    color: var(--text-color1);
+  }
 nav {
     display: flex;
     justify-content: space-between;
@@ -38,4 +42,18 @@ nav {
 
 header{
     text-align: center;
+}
+/*dark mode*/
+.dark-mode {
+    background-color:var(--dark-bg);
+    color: var(--white);
+  }
+/*select section css*/
+.select{
+    display: flex;
+    flex-direction: row;
+}
+.selection{
+    display: flex;
+    flex-direction: column;
 }
