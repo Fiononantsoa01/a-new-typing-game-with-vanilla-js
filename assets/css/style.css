@@ -17,10 +17,12 @@
 body {
     background-color: var(--white);
     color: var(--text-color1);
+    font-family: 'Open Sans', sans-serif;
   }
 nav {
     display: flex;
     justify-content: space-between;
+    padding: 3vh;
     align-items: center;
     background-color: var(--secondary-color);
     color: var(--white);
@@ -28,21 +30,31 @@ nav {
 .logo{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap:5ch;
      img{
-        width: 20%;
+        width: 8%;
+        border-radius: 50%;
      }
+     p{
+        font-size: 2rem;
+     }
+     
 }
+
 /* home and setting */
-.nav-link ul{
+
+.nav-link{
     display: flex;
     flex-direction: row;
-
+    gap: 8ch;
 }
 
-.nav-link ul li a{
+.nav-link a{
     text-decoration: none;
     justify-content: center;
     color: var(--white);
+    font-size: 1.5rem;
 }
 
 
