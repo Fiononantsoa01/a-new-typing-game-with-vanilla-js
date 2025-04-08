@@ -25,7 +25,13 @@ nav {
     background-color: var(--secondary-color);
     color: var(--white);
 }
-
+.logo{
+    display: flex;
+    flex-direction: row;
+     img{
+        width: 20%;
+     }
+}
 /* home and setting */
 .nav-link ul{
     display: flex;
