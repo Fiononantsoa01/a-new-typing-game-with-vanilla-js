@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --dark-bg: #220606;
+    --primary-color: #5F9EA0;
+    --secondary-color: #008080;
+    --terty-color: #FFD700;
+    --white: #f0f0f0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* home and setting */
+.nav-link ul{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nav-link ul li a{
+    text-decoration: none;
+    justify-content: center;
+    color: var(--white);
+}
+
+
+header{
+    text-align: center;
+}
