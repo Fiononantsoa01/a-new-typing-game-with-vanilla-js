@@ -7,7 +7,7 @@
 }
 
 :root {
-    --dark-bg: #220606;
+    --dark-bg: #110f0f;
     --primary-color: #5F9EA0;
     --secondary-color: #008080;
     --terty-color: #FFD700;
@@ -22,7 +22,7 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 3vh;
+    padding: 1.5vh;
     align-items: center;
     background-color: var(--secondary-color);
     color: var(--white);
@@ -31,9 +31,9 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:5ch;
+    gap:3ch;
      img{
-        width: 8%;
+        width: 6%;
         border-radius: 50%;
      }
      p{
@@ -49,29 +49,57 @@ nav {
     flex-direction: row;
     gap: 8ch;
 }
-
 .nav-link a{
     text-decoration: none;
     justify-content: center;
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
-
-
-header{
-    text-align: center;
+/*dark mode button*/
+.theme-mode button{
+    background: none;
+    text-decoration: none;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.2rem;
+    border: none;
+    margin-right: 5vh;
 }
-/*dark mode*/
+/*dark  mode changement*/
 .dark-mode {
     background-color:var(--dark-bg);
     color: var(--white);
   }
+
+header{
+    margin-block: 12vh;
+    text-align: center;
+}
 /*select section css*/
 .select{
     display: flex;
     flex-direction: row;
+    flex-basis: 50;
 }
 .selection{
+    text-align: center;
+    justify-content: center;
     display: flex;
+    margin: auto;
+    gap: 5ch;
     flex-direction: column;
+    border: solid #000 1px;
+    padding: 9vw;
+        button{
+            background-color: var(--secondary-color);
+            padding: 2vh;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 15px gray 15px ;
+        }
+}
+
+/*main image_decoration*/
+.keyboard{
+
 }
