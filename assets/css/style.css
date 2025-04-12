@@ -1,10 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
 }
+
 /*variable of colors*/
 :root {
     --dark-bg: #110f0f;
@@ -14,12 +15,14 @@
     --white: #f0f0f0;
     --text-color1: #000;
 }
+
 body {
     background-color: var(--white);
     color: var(--text-color1);
     font-family: 'Open Sans', sans-serif;
-  }
-  /*begining of nav css*/
+}
+
+/*begining of nav css*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -30,61 +33,87 @@ nav {
     color: var(--white);
     box-shadow: 0 14px 10px rgba(0, 100, 150, 0.3);
 }
-        /*begining of logo css*/
-.logo{
+
+/*begining of logo css*/
+.logo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:3ch;
-     img{
+    gap: 3ch;
+
+    img {
         width: 6%;
         border-radius: 50%;
-     }
-     p{
+    }
+
+    p {
         font-size: 1.5rem;
-     }
-     
+    }
+
 }
+
 .logo p span {
     position: relative;
     display: inline-block;
-    color: var(--white); 
+    color: var(--white);
     text-transform: uppercase;
     animation: colorChange 4s infinite;
     animation-delay: calc(.5s * var(--i));
 }
 
 @keyframes colorChange {
-    0% { color: var(--white); }
-    20% { color: var(--primary-color); } 
-    40% { color: var(--terty-color); } 
-    60% { color: #ff6b6b; } 
-    80% { color: var(--secondary-color); }
-    100% { color: var(--white); }
+    0% {
+        color: var(--white);
+    }
+
+    20% {
+        color: var(--primary-color);
+    }
+
+    40% {
+        color: var(--terty-color);
+    }
+
+    60% {
+        color: #ff6b6b;
+    }
+
+    80% {
+        color: var(--secondary-color);
+    }
+
+    100% {
+        color: var(--white);
+    }
 }
+
 /*ending of logo css*/
 /* begining of navigation part*/
-.nav-link{
+.nav-link {
     display: flex;
     flex-direction: row;
     gap: 8ch;
 }
+
 .nav-icon {
-    display: none !important; 
+    display: none !important;
 }
-.nav-link a{
+
+.nav-link a {
     text-decoration: none;
     justify-content: center;
     color: var(--white);
     font-size: 1.2rem;
 }
-.nav-link a  :hover{
+
+.nav-link a :hover {
     color: var(--terty-color);
 }
+
 /*ending of navigation part*/
 /*begining of change mode css*/
-    /*dark mode button*/
-.theme-mode button{
+/*dark mode button*/
+.theme-mode button {
     background: none;
     text-decoration: none;
     justify-content: center;
@@ -94,46 +123,108 @@ nav {
     flex-wrap: nowrap;
     margin: auto;
 }
-        /*dark  mode changement*/
+
+/*dark  mode changement*/
 .dark-mode {
-    background-color:var(--dark-bg);
+    background-color: var(--dark-bg);
     color: var(--white);
-  }
-  /*ending of change mode css*/
-  /*ending of nav css*/
+}
+
+/*ending of change mode css*/
+/*ending of nav css*/
 
 /*begining of header css*/
-header{
+header {
     width: 100%;
-    height: 40vh;
-    margin: 2vh;
-    border: solid #000 1px;
+    height: 30vh;
+    margin: 2vh auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-        h1{
-            font-size: 3rem;
-        }
-        p{
-            font-size: 1.5rem;
-        }
+    border-radius: 0 0 20px 20px;
+
+    /*begining of h1 css*/
+    h1 {
+        color: var(--secondary-color);
+        font-size: 3rem;
+        overflow: hidden;
+        border-right: .11em solid var(--terty-color);
+        white-space: nowrap;
+        margin: 0vh auto;
+        margin-bottom: 3vh;
+        letter-spacing: .15em;
+        animation:
+            typing 3.5s steps(30, end),
+            cursor .5s step-end infinite;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3),
+            0 0 10px var(--terty-color),
+            -1px -1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    /*ending of h1 css*/
+    p {
+        color: var(--primary-color);
+        font-size: 2rem;
+        opacity: 0;
+        animation: blur 3s ease forwards;
+        animation-delay: 3.9s;
+    }
 }
 
-header p,h1{
-    position: relative;
-    z-index: 1;
+/*begining of h1 animation*/
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 50%
+    }
 }
+
+/*the cursor animation*/
+@keyframes cursor {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange
+    }
+}
+
+/*ending of h1 animation*/
+/*begining of p animation*/
+@keyframes blur {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/*ending of p animation*/
+/*ending of header css*/
+
 
 /*select section css*/
-.select{
+.select {
     display: flex;
     flex-direction: row;
     flex-basis: 50;
 }
-.selection{
+
+.selection {
     text-align: center;
     justify-content: center;
     display: flex;
@@ -142,13 +233,14 @@ header p,h1{
     flex-direction: column;
     border: solid #000 1px;
     padding: 9vw;
-        button{
-            background-color: var(--secondary-color);
-            padding: 2vh;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 15px gray 15px ;
-        }
+
+    button {
+        background-color: var(--secondary-color);
+        padding: 2vh;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 15px gray 15px;
+    }
 }
 
 
@@ -167,46 +259,118 @@ header p,h1{
 
 /* Media query for small screen */
 @media screen and (max-width: 768px) {
+
     /*mask the text on small screen*/
     .nav-text {
-        display: none; 
+        display: none;
     }
+
     .logo p {
         display: none;
     }
-        /* Show icons on small screens */
+
+    /* Show icons on small screens */
     .nav-icon {
-        display: inline-block !important; 
+        display: inline-block !important;
         margin-right: 5vh;
         font-size: 1.5rem;
     }
+
     .logo img {
-        width: 20%; 
+        width: 20%;
     }
+
     .nav-link {
-        gap: 0vh; 
+        gap: 0vh;
     }
+
     .theme-mode button {
-        margin-right: -2vh; 
+        margin-right: -2vh;
+    }
+
+    /*change the header css for small screen*/
+    header {
+        height: 20vh;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 1.2rem;
+            letter-spacing: .12em;
+            animation:
+                typing 3s steps(46, end),
+                cursor .5s step-end infinite;
+        }
+
+        p {
+            font-size: 1rem;
+            animation-delay: 3s;
+        }
+    }
+
+    /*change the h1 animation for small screen*/
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 80%
+        }
     }
 }
+
 /*media query for medium screen*/
 @media screen and (min-width: 769px) and (max-width: 992px) {
+
     /*reduce font-size for medium scree*/
     .logo p {
-        font-size: 1.5rem; 
-    } 
-    .nav-link a, .theme-mode button {
-        font-size: 1rem;
-        white-space: nowrap; 
+        font-size: 1.5rem;
     }
+
+    .nav-link a,
+    .theme-mode button {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
     .nav-link {
-        gap: 5ch; 
-        margin-right: 5ch; 
-    }    
+        gap: 5ch;
+        margin-right: 5ch;
+    }
+
     .theme-mode button {
         padding: 0 1.5vh;
-        width: auto; 
+        width: auto;
         margin: 0;
+    }
+
+    /*change the header css for medium screen*/
+
+    header {
+        height: 38vh;
+        margin: 0vh;
+
+        h1 {
+            font-size: 2.5rem;
+            animation:
+                typing 3.2s steps(35, end),
+                cursor .5s step-end infinite;
+        }
+
+        p {
+            font-size: 1.3rem;
+            animation-delay: 3.2s;
+        }
+    }
+
+    /*change the h1 animation for medium screeen*/
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 90%
+        }
     }
 }
