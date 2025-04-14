@@ -5,47 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <!--begining of navbar part-->
     <nav>
-        <div class="logo"></div>
-        <div class="nav-link">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Setting</a></li>
-            </ul>
+        <!--begining of logo part-->
+        <div class="logo">
+            <!--logo picture-->
+            <img src="assets/images/logo.png" alt="Logo du site">
+            <!--logo text-->
+            <p>
+                <span style="--i:1">A</span>
+                <span style="--i:2">q</span>
+                <span style="--i:3">u</span>
+                <span style="--i:4">a</span>
+                <span style="--i:5">S</span>
+                <span style="--i:6">w</span>
+                <span style="--i:7">i</span>
+                <span style="--i:8">f</span>
+                <span style="--i:9">t</span>
+                <span style="--i:10"> </span>
+                <span style="--i:11">T</span>
+                <span style="--i:12">y</span>
+                <span style="--i:13">p</span>
+                <span style="--i:14">e</span>
+                <span style="--i:15">r</span>
+            </p>
         </div>
+        <!--ending of logo part-->
+        <!--navigation part-->
+        <div class="nav-link">
+            <a href=""><span class="nav-text">Home</span><i class="nav-icon fa-solid fa-home"></i></a>
+            <a href=""><span class="nav-text">Setting</span><i class="nav-icon fa-solid fa-gear"></i></a>
+        </div>
+        <!--changing mode-->
         <div class="theme-mode">
-            <p>To dark mode</p>
+            <button onclick="myFunction()"><span class="nav-text">Dark mode</span><i
+                    class="nav-icon fa-solid fa-moon"></i></button>
         </div>
     </nav>
+    <!--ending of navrbar part-->
+    <div class="first-page">
+        <header>
+            <h1>Are you fast on the keyboard?</h1>
+            <p> <em>Start your typing speed test now!</em></p>
+        </header>
+        <main>
+            <div class="select">
+                <div class="image-decoration">
+                    <img class="keyboard" src="assets/images/clavier.png" alt="clavier">
+                    <img class="clock" src="assets/images/horloge.png" alt="horloge">
+                </div>
+                <section>
+                    <div class="selection">
+                        <label for="mode">Select Mode</label>
+                        <select id="mode" class="light">
+                            <option class="light" value="easy">Facile</option>
+                            <option class="light" value="medium">Moyen</option>
+                            <option class="light" value="hard">Difficile</option>
+                        </select>
 
-    <header>
-        <h1>Are you fast on the keyboard?</h1>
-        <p>Start your typing speed test now</p>
-    </header>
-
-    <main>
-        <div class="image-decoration">
-            <img src="" alt="">
-            <img src="" alt="">
-        </div>
-        <div class="select-mode">
-            <label for="mode">Select Mode:</label>
-            <select id="mode">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-        </div>
+                        <button onclick="startTest()">Démarrer</button>
+                    </div>
+                </section>
+            </div>
+    </div>
+    <div class="second-page">
+        <section>
+            <div id="timer" style="margin-top: 10px; font-weight: bold;"></div>
+            <p id="word-display"></p>
+            <p id="results">Results : </p>
+        </section>
+    </div>
     </main>
 
     <footer>
         <p>Desing by Fy & Tsiry</p>
-    </footer>
+        </footer>
 
-    <script src="script.js"></script>
+    <script src="../test/scipt.js"></script>
+    <script src="assets/js/home.js"></script>
+
 </body>
 
 </html>
