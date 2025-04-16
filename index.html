@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/letter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-     <!--begining of navbar part-->
+    <!--begining of navbar part-->
     <nav>
         <!--begining of logo part-->
         <div class="logo">
@@ -52,28 +53,41 @@
         <h1>Are you fast on the keyboard?</h1>
         <p> <em>Start your typing speed test now!</em></p>
     </header>
-     <main>
+    <main>
+        <!--begining of select section-->
         <section class="select">
+            <!--beginbing of left part of select-->
             <div class="decoration">
-                <!-- Lettres en avant-plan -->
-                <div class="letter-box letter-front">A</div>
-                <div class="letter-box letter-front">D</div>
-                <div class="letter-box letter-front">C</div>
-                <div class="letter-box letter-front">T</div>
-                <div class="letter-box letter-front">Y</div>
-                <div class="letter-box letter-front" >E</div>
-                <div class="letter-box letter-front" >X</div>
-                <div class="letter-box letter-front" >Z</div>
-                
-                <!-- Lettres en arrière-plan -->
-                <div class="letter-box letter-back">B</div>
-                <div class="letter-box letter-back">F</div>
-                <div class="letter-box letter-back">G</div>
-                <div class="letter-box letter-back">H</div>
-                <div class="letter-box letter-back"></div>
-                <div class="letter-box letter-back">K</div>
-                <div class="letter-box letter-back">L</div>
+<!-- Lettres en avant-plan -->
+                <div class="letter-box letter-front" id="letter1">A</div>
+                <div class="letter-box letter-front" id="letter2">D</div>
+                <div class="letter-box letter-front" id="letter3">C</div>
+                <div class="letter-box letter-front" id="letter4">G</div>
+                <div class="letter-box letter-front" id="letter5">J</div>
+                <div class="letter-box letter-front" id="letter6">H</div>
+                <div class="letter-box letter-front" id="letter7">T</div>
+                <div class="letter-box letter-front" id="letter8">Y</div>
+                <div class="letter-box letter-front" id="letter9">E</div>
+                <div class="letter-box letter-front" id="letter10">X</div>
+                <div class="letter-box letter-front" id="letter11">M</div>
+                <div class="letter-box letter-front" id="letter12">N</div>
+                <div class="letter-box letter-front" id="letter13">O</div>
+                <div class="letter-box letter-front" id="letter14">Y</div>
+                <div class="letter-box letter-front" id="letter15">E</div>
+                <div class="letter-box letter-front" id="letter16">X</div>
+                <div class="letter-box letter-front" id="letter17">Z</div>
+ <!-- Lettres en arrière-plan -->
+                <div class="letter-box letter-back" id="back1">B</div>
+                <div class="letter-box letter-back" id="back2">F</div>
+                <div class="letter-box letter-back" id="back3">G</div>
+                <div class="letter-box letter-back" id="back4">H</div>
+                <div class="letter-box letter-back" id="back5">A</div>
+                <div class="letter-box letter-back" id="back6">B</div>
+                <div class="letter-box letter-back" id="back7">C</div>
+                <div class="letter-box letter-back" id="back8">L</div>
             </div>
+             <!--ending of left part of select-->
+              <!--beginbing of right part of select-->
             <div class="selection">
                 <label for="mode">Select Mode</label>
                 <select id="mode">
@@ -83,7 +97,9 @@
                 </select>
                 <button>Start typing</button>
             </div>
+            <!--ending of right part of select-->
         </section>
+        <!--ending of select section-->
         <section>
             <p id="word-display"></p>
             <input type="text" id="input-field" autofocus>
@@ -94,10 +110,9 @@
     <footer>
         <p>Desing by Fy & Tsiry</p>
     </footer>
- 
+
     <script src="script.js"></script>
     <script src="assets/js/home.js"></script>
 
 </body>
-
 </html>

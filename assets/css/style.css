@@ -1,4 +1,4 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -9,6 +9,7 @@
 /*variable of colors*/
 :root {
     --dark-bg: #110f0f;
+    --dark-secondary-color: rgba(0, 100, 150, 0.3);
     --primary-color: #5F9EA0;
     --secondary-color: #008080;
     --terty-color: #FFD700;
@@ -17,6 +18,9 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: var(--white);
     color: var(--text-color1);
     font-family: 'Open Sans', sans-serif;
@@ -24,6 +28,8 @@ body {
 
 /*begining of nav css*/
 nav {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     justify-content: space-between;
@@ -130,11 +136,18 @@ nav {
     color: var(--white);
 }
 
+body.dark-mode select,
+body.dark-mode option {
+    background-color: rgb(1, 81, 121);
+    color: var(--white);
+}
+
 /*ending of change mode css*/
 /*ending of nav css*/
 
 /*begining of header css*/
 header {
+    z-index: -1;
     width: 100%;
     height: 30vh;
     margin: 2vh auto;
@@ -215,103 +228,174 @@ header {
 
 /*ending of p animation*/
 /*ending of header css*/
-
-
-/*select section css*/
-.decoration{
-    width: 50%;
-    border: solid #000 1px;
-    align-items: center;
+main{
+    flex: 1;
 }
-.letter-box {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    background-color: rgba(30, 144, 255, 0.8);
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.letter-back {
-    z-index: 1;
-    opacity: 0.5;
-}
-
-.letter-front {
-    z-index: 2;
-}
-
-
+/*begining of select section css*/
 .select {
     display: flex;
     flex-direction: row;
-    flex-basis: 50;
+    justify-content: space-between;
+    margin: auto;
     overflow: hidden;
-    margin-inline: 5vw;
-    gap: 8ch;
+    margin: auto;
+    gap: 2rem;
+    width: 88vw;
+    height: 30vw;
 }
-
-
-.keyboard {
-    width: 45%;
-    transform: rotate(-40deg);
-    margin-bottom: 15vh;
-}
-
-.alarm {
-    width: 25%;
-    transform: rotate(-15deg);
-    margin-bottom: 15vh;
-}
+    /*the css of decoration part is in the letter.css file*/
+.decoration,
 .selection {
-    width: 50%;
-    align-items: center;
+    flex: 1 1 50%;
+}
+/* selection css*/
+.selection {
+    margin: 5vh;
     text-align: center;
     justify-content: center;
     display: flex;
-    margin: auto;
-    gap: 2ch;
+    align-items: center;
+    gap: 5ch;
+    padding: 2rem;
     flex-direction: column;
-    border: solid #000 1px;
-    padding: 9vw;
+    box-shadow: 4px 4px 12px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 
     button {
-        color: var(--white);
-        font-size: 1.2rem;
-        width: 15vw;
         background-color: var(--secondary-color);
         padding: 2vh;
+        font-size: 1rem;
         border: none;
         border-radius: 20px;
+        color: var(--white);
     }
 }
+body.dark-mode .selection {
+    background-color: var(--dark-secondary-color);
+}
 .selection label{
-    font-size: 32px;
-}
-#mode{
-    padding-left: 2vh;
-    font-size: 1.3rem;
-    width: 15vw;
-    height: 6vh;
-    border-radius: 15px;
+    font-size: 25px;
+    color: var(--secondary-color);
 }
 
+#mode {
+    font-size: 1.2rem;
+    width: 10vw;
+    height: 5vh;
+    background-color: transparent;
+    outline: none;
+    border: var(--secondary-color) solid 2px;
+    box-shadow: 4px 4px 5px 2px rgba(115, 114, 114, 0.3);
+    border-radius: 5px;
+    padding: 6px 6px;
+    text-align: center;
+}
+option{
+    background-color:var(--primary-color);
+    color: var(--white);
+}
 
+/*ending of select css*/
+/*css of footer*/
+footer {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
 
+footer p {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
 
+/*media query for medium screen*/
+@media screen and (min-width: 769px) and (max-width: 1500px) {
+    /*reduce font-size for medium scree*/
+    .logo p {
+        font-size: 1.5rem;
+    }
 
+    .nav-link a,
+    .theme-mode button {
+        font-size: 1rem;
+        white-space: nowrap;
+    }
 
+    .nav-link {
+        gap: 5ch;
+        margin-right: 5ch;
+    }
 
+    .theme-mode button {
+        padding: 0 1.5vh;
+        width: auto;
+        margin: 0;
+    }
 
+    /*change the header css for medium screen*/
 
+    header {
+        height: 20vh;
+        margin: 0vh;
 
+        h1 {
+            font-size: 2.5rem;
+            animation:
+                typing 3.2s steps(35, end),
+                cursor .5s step-end infinite;
+        }
 
+        p {
+            font-size: 1.3rem;
+            animation-delay: 3.2s;
+        }
+    }
+
+    /*change the h1 animation for medium screeen*/
+    @keyframes typing {
+        from {
+            width: 0
+        }
+
+        to {
+            width: 90%
+        }
+    }
+    /*select css for medium screen*/
+    .select {
+        height: 40vw;
+    }
+    .selection {
+        margin: 3vh;
+        gap: 2vw;
+        width: 34vw;
+        height: 28vw;
+
+        button {
+            padding: 2% 4%;
+            border-radius: 15px;
+        }
+    }
+    #mode {
+        width: 40%;
+        padding: 2%;
+    }
+    #mode option { 
+        font-size: 0.5rem;
+        padding: 2px 8px;
+    }
+    /*footer css*/
+    footer {
+        padding: 1.5rem 0;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+    }
+}
 
 
 
@@ -375,65 +459,37 @@ header {
             width: 80%
         }
     }
-    .select{
-        flex-direction: column;
-        align-items: center;
+    /*select css for small scree*/
+    .select {
+        height: 70vw;
     }
-}
-/*begining of select section*/
+    .selection {
+        margin: 3vh;
+        gap: 2vw;
+        width: 34vw;
+        height: 50vw;
 
-/*media query for medium screen*/
-@media screen and (min-width: 769px) and (max-width: 992px) {
-
-    /*reduce font-size for medium scree*/
-    .logo p {
-        font-size: 1.5rem;
-    }
-
-    .nav-link a,
-    .theme-mode button {
-        font-size: 1rem;
-        white-space: nowrap;
-    }
-
-    .nav-link {
-        gap: 5ch;
-        margin-right: 5ch;
-    }
-
-    .theme-mode button {
-        padding: 0 1.5vh;
-        width: auto;
-        margin: 0;
-    }
-
-    /*change the header css for medium screen*/
-
-    header {
-        height: 38vh;
-        margin: 0vh;
-
-        h1 {
-            font-size: 2.5rem;
-            animation:
-                typing 3.2s steps(35, end),
-                cursor .5s step-end infinite;
-        }
-
-        p {
-            font-size: 1.3rem;
-            animation-delay: 3.2s;
+        button {
+            padding: 2% 4%;
+            border-radius: 15px;
         }
     }
-
-    /*change the h1 animation for medium screeen*/
-    @keyframes typing {
-        from {
-            width: 0
-        }
-
-        to {
-            width: 90%
-        }
+    
+    #mode {
+        width: 50%;
+        padding: 2%;
+    }
+    #mode option {
+        font-size: 0.6rem; 
+        padding: 10px 5px;
+    }
+    /*footer css*/
+    footer {
+        padding: 1rem 0;
+        margin-top: 2rem;
+    }
+    
+    footer p {
+        font-size: 0.8rem;
     }
 }
