@@ -4,7 +4,7 @@
     align-items: center;
     position: relative !important;
     overflow: hidden; 
-
+    z-index: -1;
 }
 .letter-back {
     background-color: rgba(100, 100, 255, 0.6);
@@ -69,3 +69,8 @@
         display: none;
     }
 }
+
+
+
+
+
