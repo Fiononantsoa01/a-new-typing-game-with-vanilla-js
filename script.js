@@ -24,7 +24,7 @@ const words = {
     hard: ["synchronize", "complicated", "development", "extravagant", "misconception"]
 };
 
-// const timeLeft = [15, 30, 60, 120];
+
 
 // Generate a random word from the selected mode
 const getRandomWord = (mode) => {
@@ -37,8 +37,9 @@ const getRandomWord = (mode) => {
 // }
 
 // Initialize the typing test
-let time = selectTime.value
+let time;
 const startTest = () => {
+    time = selectTime.value
     timerDisplay.textContent = "Temps : " + time + "s";
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
@@ -55,8 +56,8 @@ const startTest = () => {
 };
 
 
-const test = (wordCount = 50) =>{
-    
+const test = (wordCount = 50) => {
+
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
     }
@@ -84,10 +85,6 @@ const counDown = () => {
     timerInterval = setInterval(() => {
         if (time > 0) {
             time--;
-            
-            if (stop == 1){
-                stop --;
-            }
             timerDisplay.textContent = `Temps : ${time}s`;
         }
         else {
@@ -126,21 +123,26 @@ document.addEventListener("keydown", (event) => {
     const currentSpan = letters[currentCharIndex];
     const expectedChar = currentSpan.textContent;
 
-    if (event.key.length === 1 || event.key === " ") { 
+    if (event.key.length === 1 || event.key === " ") {
         if (event.key === expectedChar) {
             currentSpan.style.color = 'green';
         }
-         else {
+        else {
             currentSpan.style.color = 'red';
-            
+
         }
 
+        if (stop === 1) {
+            counDown();
+            stop--;
 
-        currentSpan.classList.remove("cursor"); 
+        }
+
+        currentSpan.classList.remove("cursor");
 
         currentCharIndex++;
 
-        
+
         if (currentCharIndex < letters.length) {
             letters[currentCharIndex].classList.add("cursor");
         }
@@ -149,13 +151,7 @@ document.addEventListener("keydown", (event) => {
             test();
         }
     }
-    if (event.key.length === 1){
-        if(stop ===1 ){
-        counDown();
-        alert(stop)
-    }
-        
-    }
+
 });
 
 // -------------------------------------------------------------- Avarage----------------------------------------------------------//
