@@ -7,7 +7,7 @@
  */
 let startTime = null, previousEndTime = null;
 let currentCharIndex = 0;
-const wordsToType = [];
+let wordsToType = [];
 
 const modeSelect = document.getElementById("mode");
 const wordDisplay = document.getElementById("word-display");
@@ -15,7 +15,11 @@ const results = document.getElementById("results");
 const firstPage = document.getElementsByClassName('select')[0];
 const selectTime = document.getElementById('selectTime');
 const timerDisplay = document.getElementById("timer");
+let stop = 1
+let hasStarted = false;
+let hasStoped = false;
 
+let a = 1;
 
 
 const words = {
@@ -38,8 +42,19 @@ const getRandomWord = (mode) => {
 
 // Initialize the typing test
 let time;
+let correctLetter = 0;
+let incorrectLetter = 0;
+let timerInterval = null;
+
+clearInterval(timerInterval);
 const startTest = () => {
-    time = selectTime.value
+    clearInterval(timerInterval);
+    stop = 1
+    time = selectTime.value;
+    correctLetter = 0;
+    incorrectLetter = 0;
+    hasStarted = false;
+    hasStoped = false;
     timerDisplay.textContent = "Temps : " + time + "s";
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
@@ -48,15 +63,15 @@ const startTest = () => {
     // previousEndTime = null;
     // alert(time);
 
-    test();
+    wordTest();
     firstPage.style.display = 'none'
 
+    wordDisplay.style.display = 'block';
     wordDisplay.children[0].classList.add("cursor");
-
+    return time;
 };
 
-
-const test = (wordCount = 50) => {
+const wordTest = (wordCount = 50) => {
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
@@ -80,7 +95,9 @@ const test = (wordCount = 50) => {
     wordDisplay.value = "";
     results.textContent = "";
 }
-let stop = 1
+
+// Start the timer
+let endTime;
 const counDown = () => {
     timerInterval = setInterval(() => {
         if (time > 0) {
@@ -88,34 +105,28 @@ const counDown = () => {
             timerDisplay.textContent = `Temps : ${time}s`;
         }
         else {
-            endTest();
+            if (!hasStoped) {
+                endTime = Date.now();
+                hasStoped = true;
+            }
+            finish();
         }
     }, 1000);
+    return a = 0;
 }
 
 
-// Start the timer when user begins typing
-const startTimer = () => {
-    if (!startTime) startTime = Date.now();
-};
 
-// Calculate and return WPM & accuracy
-let wpmResults = [];
-let accuracyResults = [];
-const getCurrentStats = () => {
-    const elapsedTime = (Date.now() - selectTime.value) / 1000; // Seconds
-    const wpm = (wordsToType[currentCharIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
-    const accuracy = (wordsToType[currentCharIndex].length / wordDisplay.value.length) * 100;
+// Move to the next letter after touching a letter on the keyboard
 
-    wpmResults.push(wpm)
-    accuracyResults.push(accuracy)
 
-    return { wpm: wpm.toFixed(2), accuracy: accuracy.toFixed(2) };
-};
-
-// Move to the next word and update stats only on spacebar press
 document.addEventListener("keydown", (event) => {
-    if (!startTime) startTime = Date.now();
+    // if (!startTime) startTime = Date.now();
+    if (hasStoped == true) return;
+    if (!hasStarted) {
+        startTime = Date.now();
+        hasStarted = true;
+    }
 
     const letters = document.getElementsByClassName('letter');
     if (currentCharIndex >= letters.length) return;
@@ -126,10 +137,11 @@ document.addEventListener("keydown", (event) => {
     if (event.key.length === 1 || event.key === " ") {
         if (event.key === expectedChar) {
             currentSpan.style.color = 'green';
+            correctLetter++;
         }
         else {
             currentSpan.style.color = 'red';
-
+            incorrectLetter++;
         }
 
         if (stop === 1) {
@@ -148,48 +160,46 @@ document.addEventListener("keydown", (event) => {
         }
 
         if (currentCharIndex + 50 >= letters.length) {
-            test();
+            wordTest();
+        }
+    } else if (event.key === "Backspace") {
+        if (currentCharIndex > 0) {
+            if ((letters[currentCharIndex - 1]).style.color == "red") {
+                letters[currentCharIndex].classList.remove("cursor");
+                currentCharIndex--;
+                letters[currentCharIndex].style.color = "";
+                letters[currentCharIndex].classList.add("cursor");
+            }
         }
     }
 
-});
 
-// -------------------------------------------------------------- Avarage----------------------------------------------------------//
+})
 
-const wpmAverage = (wpmResults) => {
-    let somme = 0
-    for (let element of wpmResults) {
-        somme += element;
-    }
+// Calculate and return WPM & accuracy
+const getCurrentStats = () => {
+    let totalTaped = correctLetter + incorrectLetter
+    const elapsedTime = (endTime - startTime) / 1000; // Seconds
+    const wpm = (correctLetter / 5) / (elapsedTime / 60); // 5 chars = 1 word
+    const accuracy = (correctLetter / totalTaped) * 100;
 
-    return somme / wpmResults.length;
-}
-const accuracyAverage = (accuracyResults) => {
-    let somme = 0
-    for (let element of accuracyResults) {
-        somme += element;
-    }
-
-    return somme / accuracyResults.length;
-}
+    return { wpm: wpm.toFixed(2), accuracy: accuracy.toFixed(2) };
+};
 
 // finish test
 const finish = () => {
-
+    firstPage.style.display = 'flex';
+    const { wpm, accuracy } = getCurrentStats();
+    results.textContent = `WPM: ${wpm} | Accuracy: ${accuracy}%`;
+    // alert(endTime - startTime);
+    wordDisplay.style.display = 'none';
+    wordsToType = [];
+    currentCharIndex = 0;
+    timerDisplay.textContent = ""
 }
 // ---------------------------------------------------------------------------------------------------------------------------------//
 
 // Highlight the current word in red
-const highlightNextWord = () => {
-    const wordElements = wordDisplay.children;
-
-    if (currentCharIndex < wordElements.length) {
-        if (currentCharIndex > 0) {
-            wordElements[currentCharIndex - 1].style.color = "black";
-        }
-        wordElements[currentCharIndex].style.color = "black";
-    }
-};
 
 // Event listeners
 // Attach `updateWord` to `keydown` instead of `input`

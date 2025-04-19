@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
         <section class="select">
             <!--beginbing of left part of select-->
             <div class="decoration">
-<!-- Lettres en avant-plan -->
+                <!-- Lettres en avant-plan -->
                 <div class="letter-box letter-front" id="letter1">A</div>
                 <div class="letter-box letter-front" id="letter2">D</div>
                 <div class="letter-box letter-front" id="letter3">C</div>
@@ -76,7 +76,7 @@
                 <div class="letter-box letter-front" id="letter15">E</div>
                 <div class="letter-box letter-front" id="letter16">X</div>
                 <div class="letter-box letter-front" id="letter17">Z</div>
- <!-- Lettres en arrière-plan -->
+                <!-- Lettres en arrière-plan -->
                 <div class="letter-box letter-back" id="back1">B</div>
                 <div class="letter-box letter-back" id="back2">F</div>
                 <div class="letter-box letter-back" id="back3">G</div>
@@ -86,8 +86,9 @@
                 <div class="letter-box letter-back" id="back7">C</div>
                 <div class="letter-box letter-back" id="back8">L</div>
             </div>
-             <!--ending of left part of select-->
-              <!--beginbing of right part of select-->
+            <p id="results"></p>
+            <!--ending of left part of select-->
+            <!--beginbing of right part of select-->
             <div class="selection">
                 <label for="mode">Select Mode</label>
                 <select id="mode">
@@ -95,15 +96,20 @@
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
                 </select>
-                <button>Start typing</button>
+                <select id="selectTime">
+                    <option value="15">15s</option>
+                    <option value="30">30s</option>
+                    <option value="60">60s</option>
+                </select>
+                <button onclick="startTest()">Start typing</button>
             </div>
             <!--ending of right part of select-->
         </section>
         <!--ending of select section-->
         <section>
+            <div id="timer"></div>
             <p id="word-display"></p>
-            <input type="text" id="input-field" autofocus>
-            <p id="results">Results : </p>
+            <!-- <input type="text" id="input-field" autofocus> -->
         </section>
     </main>
 
@@ -115,4 +121,5 @@
     <script src="assets/js/home.js"></script>
 
 </body>
+
 </html>
