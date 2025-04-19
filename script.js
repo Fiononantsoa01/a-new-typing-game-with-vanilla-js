@@ -47,6 +47,8 @@ let incorrectLetter = 0;
 let timerInterval = null;
 
 clearInterval(timerInterval);
+wordDisplay.style.display = 'none';
+
 const startTest = () => {
     clearInterval(timerInterval);
     stop = 1
