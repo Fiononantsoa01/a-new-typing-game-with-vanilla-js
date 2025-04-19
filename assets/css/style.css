@@ -628,6 +628,15 @@ option {
     border-left: solid 2px var(--secondary-color);
 }
 
+#timer{
+    font-size: 1rem;
+    margin: 20px;
+}
+#results{
+    text-align: center;
+    font-size: 1.4rem;
+}
+
 /*css of footer*/
 footer {
     width: 100%;
