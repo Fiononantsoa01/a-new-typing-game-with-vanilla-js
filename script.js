@@ -63,7 +63,7 @@ const startTest = () => {
     // previousEndTime = null;
     // alert(time);
 
-    wordTest();
+    wordtest();
     firstPage.style.display = 'none'
 
     wordDisplay.style.display = 'block';
@@ -71,7 +71,7 @@ const startTest = () => {
     return time;
 };
 
-const wordTest = (wordCount = 50) => {
+const wordtest = (wordCount = 50) => {
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
@@ -160,7 +160,7 @@ document.addEventListener("keydown", (event) => {
         }
 
         if (currentCharIndex + 50 >= letters.length) {
-            wordTest();
+            wordtest();
         }
     } else if (event.key === "Backspace") {
         if (currentCharIndex > 0) {
