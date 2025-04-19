@@ -19,7 +19,7 @@ let stop = 1
 let hasStarted = false;
 let hasStoped = false;
 
-let a = 1;
+
 
 
 const words = {
@@ -36,9 +36,6 @@ const getRandomWord = (mode) => {
     return wordList[Math.floor(Math.random() * wordList.length)];
 };
 
-// const selectTime = (time)=>{
-//     return timeleft[time]
-// }
 
 // Initialize the typing test
 let time;
@@ -60,10 +57,7 @@ const startTest = () => {
     timerDisplay.textContent = "Temps : " + time + "s";
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
-    // currentCharIndex = 0;
     startTime = null;
-    // previousEndTime = null;
-    // alert(time);
 
     wordtest();
     firstPage.style.display = 'none'
