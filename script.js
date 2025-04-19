@@ -45,6 +45,8 @@ let timerInterval = null;
 
 clearInterval(timerInterval);
 wordDisplay.style.display = 'none';
+timerDisplay.style.display = 'none';
+results.style.display = 'none'
 
 const startTest = () => {
     clearInterval(timerInterval);
@@ -54,7 +56,9 @@ const startTest = () => {
     incorrectLetter = 0;
     hasStarted = false;
     hasStoped = false;
+    timerDisplay.style.display = '';
     timerDisplay.textContent = "Temps : " + time + "s";
+    results.style.display = 'none'
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
     startTime = null;
@@ -189,6 +193,8 @@ const finish = () => {
     results.textContent = `WPM: ${wpm} | Accuracy: ${accuracy}%`;
     // alert(endTime - startTime);
     wordDisplay.style.display = 'none';
+    timerDisplay.style.display = 'none';
+    results.style.display = ''
     wordsToType = [];
     currentCharIndex = 0;
     timerDisplay.textContent = ""

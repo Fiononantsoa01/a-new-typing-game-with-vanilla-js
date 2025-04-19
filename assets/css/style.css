@@ -607,34 +607,54 @@ option {
 /*ending of select css*/
 /*css for the tapying part*/
 .test {
-    margin-block: 5vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 #word-display {
     letter-spacing: 0.3rem;
-    word-spacing: 1ch;
+    word-spacing: 0.5ch;
     background-color: transparent;
     width: 70vw;
-    border: #FFD700 8px solid;
-    margin: auto;
+    border: var(--secondary-color) 3px dotted;
+    border-radius: 20px;
     font-size: 2rem;
-    text-align: center;
     padding: 2vh 4vh;
-}
+}  
 
 .cursor {
     border-left: solid 2px var(--secondary-color);
 }
 
 #timer{
-    font-size: 1rem;
-    margin: 20px;
+    /* text-align: center; */
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--secondary-color);
+    padding: 1rem 1.5rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color);
+    width: 25vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 #results{
-    text-align: center;
+    margin-block: 20px;
     font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--secondary-color);
+    padding: 1rem 1.5rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-color);
+    width: 25vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /*css of footer*/
@@ -816,6 +836,9 @@ footer p {
     font-size: 0.5rem;
     padding: 2px 8px;
 }
+#word-display {
+    width: 90vw;
+}
 
 /*footer css for medium screen*/
 footer {
@@ -996,6 +1019,12 @@ footer p {
     #mode option, #selectTime option {
         font-size: 0.6rem;
         padding: 10px 5px;
+    }
+
+    #word-display {
+        width: 90vw;
+        font-size: 1rem;
+        padding: 1vh 2vh;
     }
 
     /*footer css for small screen*/
